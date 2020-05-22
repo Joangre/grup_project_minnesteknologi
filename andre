@@ -1,0 +1,12 @@
+learning_rate = 0 # Sets learning rate to zero
+        T_plus = 0.*mV  #Fixes treshold
+        classification = [0]*10
+        OM = SpikeMonitor(O)
+        N.add(OM)
+        
+        for image in random.sample(list(training_data['x']), 1000): #Subset of 1000 random images from training_data
+            N.run(presentation_time, profile=True) #present data to network for given time
+            for o in range(N_out):
+                classification = OM.num_spikes(O)
+        for o in range(N_out):
+            break
